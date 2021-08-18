@@ -1,0 +1,15 @@
+/Users/atmac/revature/akil_repo/week_1/HelloCsharp/bin/Debug/net5.0/HelloCsharp.deps.json
+/Users/atmac/revature/akil_repo/week_1/HelloCsharp/bin/Debug/net5.0/HelloCsharp.runtimeconfig.json
+/Users/atmac/revature/akil_repo/week_1/HelloCsharp/bin/Debug/net5.0/HelloCsharp.runtimeconfig.dev.json
+/Users/atmac/revature/akil_repo/week_1/HelloCsharp/bin/Debug/net5.0/HelloCsharp.dll
+/Users/atmac/revature/akil_repo/week_1/HelloCsharp/bin/Debug/net5.0/ref/HelloCsharp.dll
+/Users/atmac/revature/akil_repo/week_1/HelloCsharp/bin/Debug/net5.0/HelloCsharp.pdb
+/Users/atmac/revature/akil_repo/week_1/HelloCsharp/obj/Debug/net5.0/HelloCsharp.csproj.AssemblyReference.cache
+/Users/atmac/revature/akil_repo/week_1/HelloCsharp/obj/Debug/net5.0/HelloCsharp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/atmac/revature/akil_repo/week_1/HelloCsharp/obj/Debug/net5.0/HelloCsharp.AssemblyInfoInputs.cache
+/Users/atmac/revature/akil_repo/week_1/HelloCsharp/obj/Debug/net5.0/HelloCsharp.AssemblyInfo.cs
+/Users/atmac/revature/akil_repo/week_1/HelloCsharp/obj/Debug/net5.0/HelloCsharp.csproj.CoreCompileInputs.cache
+/Users/atmac/revature/akil_repo/week_1/HelloCsharp/obj/Debug/net5.0/HelloCsharp.dll
+/Users/atmac/revature/akil_repo/week_1/HelloCsharp/obj/Debug/net5.0/ref/HelloCsharp.dll
+/Users/atmac/revature/akil_repo/week_1/HelloCsharp/obj/Debug/net5.0/HelloCsharp.pdb
+/Users/atmac/revature/akil_repo/week_1/HelloCsharp/obj/Debug/net5.0/HelloCsharp.genruntimeconfig.cache
