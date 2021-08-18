@@ -1,0 +1,15 @@
+/Users/atmac/revature/akil_repo/week_1/Calculator/bin/Debug/net5.0/Calculator.deps.json
+/Users/atmac/revature/akil_repo/week_1/Calculator/bin/Debug/net5.0/Calculator.runtimeconfig.json
+/Users/atmac/revature/akil_repo/week_1/Calculator/bin/Debug/net5.0/Calculator.runtimeconfig.dev.json
+/Users/atmac/revature/akil_repo/week_1/Calculator/bin/Debug/net5.0/Calculator.dll
+/Users/atmac/revature/akil_repo/week_1/Calculator/bin/Debug/net5.0/ref/Calculator.dll
+/Users/atmac/revature/akil_repo/week_1/Calculator/bin/Debug/net5.0/Calculator.pdb
+/Users/atmac/revature/akil_repo/week_1/Calculator/obj/Debug/net5.0/Calculator.csproj.AssemblyReference.cache
+/Users/atmac/revature/akil_repo/week_1/Calculator/obj/Debug/net5.0/Calculator.GeneratedMSBuildEditorConfig.editorconfig
+/Users/atmac/revature/akil_repo/week_1/Calculator/obj/Debug/net5.0/Calculator.AssemblyInfoInputs.cache
+/Users/atmac/revature/akil_repo/week_1/Calculator/obj/Debug/net5.0/Calculator.AssemblyInfo.cs
+/Users/atmac/revature/akil_repo/week_1/Calculator/obj/Debug/net5.0/Calculator.csproj.CoreCompileInputs.cache
+/Users/atmac/revature/akil_repo/week_1/Calculator/obj/Debug/net5.0/Calculator.dll
+/Users/atmac/revature/akil_repo/week_1/Calculator/obj/Debug/net5.0/ref/Calculator.dll
+/Users/atmac/revature/akil_repo/week_1/Calculator/obj/Debug/net5.0/Calculator.pdb
+/Users/atmac/revature/akil_repo/week_1/Calculator/obj/Debug/net5.0/Calculator.genruntimeconfig.cache

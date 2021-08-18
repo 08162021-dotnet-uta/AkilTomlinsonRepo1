@@ -9,7 +9,7 @@ namespace HelloCsharp
 
     static void Main(string[] args)
     {
-      double number1;
+      /*double number1;
       double number2;
       Scanner user = new Scanner(System.in);
       //checked online on how to set up operator selection - geeksforgeeks
@@ -46,7 +46,7 @@ namespace HelloCsharp
           System.out.println("Please enter one of the following (+,-,*,/)");
       }
 
-      System.out.println(calculation);
+      System.out.println(calculation);*/
 
 
 
