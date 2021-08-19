@@ -23,23 +23,23 @@ namespace Calculator
     static int Add(int input1, int input2)
     {
       // compute
-      return (int)input1 + (int)input2;
+      return input1 + input2;
     }
 
     static int Subtract(int input1, int input2)
     {
       // compute
-      return (int)input1 - (int)input2;
+      return input1 - input2;
     }
     static int Multiply(int input1, int input2)
     {
       // compute
-      return (int)input1 * (int)input2;
+      return input1 * input2;
     }
     static int Divide(int input1, int input2)
     {
       // compute
-      return (int)input1 / (int)input2;
+      return input1 / input2;
     }
 
     static void Print(params int[] results)
