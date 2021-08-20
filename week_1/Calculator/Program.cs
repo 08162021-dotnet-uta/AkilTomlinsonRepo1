@@ -67,18 +67,18 @@ namespace Calculator
     static bool Input(out int i1, out int i2)
     {
       // input stuff
-      int input1, input2;
+      //int input1, input2;
 
-      if (int.TryParse(Console.ReadLine(), out input1) && int.TryParse(Console.ReadLine(), out input2))
+      if (int.TryParse(Console.ReadLine(), out i1) & int.TryParse(Console.ReadLine(), out i2))
       {
-        i1 = input1;
-        i2 = input2;
+        //i1 = input1;
+        //i2 = input2;
 
         return true;
       }
       else
       {
-        i1 = i2 = 0;
+        //i1 = i2 = 0;
 
         return false;
       }
