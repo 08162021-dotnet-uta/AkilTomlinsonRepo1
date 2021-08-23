@@ -1,6 +1,7 @@
 ﻿using System;
-using Project0.StoreApplication.Domain.Models;
+using Project0.StoreApplication.Domain.Abstracts;
 using Project0.StoreApplication.Storage.Repositories;
+using Serilog;
 
 namespace Project0.StoreApplication.Client
 {
@@ -8,13 +9,19 @@ namespace Project0.StoreApplication.Client
   {
     static void Main(string[] args)
     {
+      Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
+
       PrintAllStoreLocations();
 
       System.Console.WriteLine(SelectAStore());
+
+      PrintAllProducts();
     }
 
     static void PrintAllStoreLocations()
     {
+      Log.Information("Print Store");
+
       var storeRepository = new StoreRepository();
       int i = 1;
 
@@ -22,6 +29,16 @@ namespace Project0.StoreApplication.Client
       {
         System.Console.WriteLine(i + "-" + store);
         i++;
+      }
+    }
+    static void PrintAllProducts()
+    {
+      var productRepository = new ProductRepository();
+
+      foreach (var product in productRepository.Products)
+      {
+        System.Console.WriteLine(product);
+
       }
     }
 
