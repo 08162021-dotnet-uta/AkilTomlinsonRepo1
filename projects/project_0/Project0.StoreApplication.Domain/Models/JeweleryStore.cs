@@ -1,14 +1,12 @@
-using System.Xml.Serialization;
 using Project0.StoreApplication.Domain.Abstracts;
 
 namespace Project0.StoreApplication.Domain.Models
 {
-
-  public class GroceryStore : Store
+  public class JeweleryStore : Store
   {
-    public GroceryStore()
+    public JeweleryStore()
     {
-      Name = "GroceryStore";
+      Name = "JeweleryStore";
     }
 
   }

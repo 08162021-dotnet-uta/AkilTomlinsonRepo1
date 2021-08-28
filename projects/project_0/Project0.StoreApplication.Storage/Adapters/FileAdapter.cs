@@ -7,33 +7,28 @@ namespace Project0.StoreApplicatetion.Storage.Adapters
 {
   public class FileAdapter
   {
-    public List<Store> ReadFromFile()
+    public List<T> ReadFromFile<T>(string path) where T : class
     {
-      // file path
-      var path = "~/revature/akil_repo/data/project_0.xml";
-      // open file
+      if (!File.Exists(path))
+      {
+        return null;
+      }
+
       var file = new StreamReader(path);
-      // serialize object
-      var xml = new XmlSerializer(typeof(List<Store>));
-      // read from file
-      var stores = xml.Deserialize(file) as List<Store>;
-      // return data
-      return stores;
+      var xml = new XmlSerializer(typeof(List<T>));
+      var result = xml.Deserialize(file) as List<T>;
+
+      return result;
     }
 
 
-    public void WriteToFile(List<Store> stores)
+    public void WriteToFile<T>(string path, List<T> data) where T : class
     {
-      // file path
-      var path = "~/revature/akil_repo/data/project_0.xml";
-      // open file
+
       var file = new StreamWriter(path);
-      // serialize object
-      var xml = new XmlSerializer(typeof(List<Store>));
-      // write to file
-      xml.Serialize(file, stores);
-      // close file
-      file.Close();
+      var xml = new XmlSerializer(typeof(List<T>));
+
+      xml.Serialize(file, data);
     }
   }
 }
