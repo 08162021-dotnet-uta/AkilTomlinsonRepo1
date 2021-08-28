@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProduct xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Product>
+    <Name>T-Shirt</Name>
+    <Category>Clothing</Category>
+  </Product>
+  <Product>
+    <Name>Hoodie</Name>
+    <Category>Clothing</Category>
+  </Product>
+  <Product>
+    <Name>Jeans</Name>
+    <Category>Clothing</Category>
+  </Product>
+  <Product>
+    <Name>Eggs</Name>
+    <Category>Grocery</Category>
+  </Product>
+  <Product>
+    <Name>Bacon</Name>
+    <Category>Grocery</Category>
+  </Product>
+  <Product>
+    <Name>Cereal</Name>
+    <Category>Grocery</Category>
+  </Product>
+  <Product>
+    <Name>Necklace</Name>
+    <Category>Jewelery</Category>
+  </Product>
+  <Product>
+    <Name>Ring</Name>
+    <Category>Jewelery</Category>
+  </Product>
+  <Product>
+    <Name>Bracelet</Name>
+    <Category>Jewelery</Category>
+  </Product>
+</ArrayOfProduct>
