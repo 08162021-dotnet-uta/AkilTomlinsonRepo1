@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using Project0.StoreApplication.Client.Singletons;
 using Project0.StoreApplication.Domain.Abstracts;
 using Project0.StoreApplication.Domain.Models;
@@ -18,6 +19,7 @@ namespace Project0.StoreApplication.Client
     private static readonly CustomerSingleton _customerSingleton = CustomerSingleton.Instance;
     private static readonly StoreSingleton _storeSingleton = StoreSingleton.Instance;
     private static readonly ProductSingleton _productSingleton = ProductSingleton.Instance;
+    private static readonly OrderSingleton _orderSingleton = OrderSingleton.Instance;
 
     /// <summary>
     /// Defines the Main Method
@@ -31,31 +33,90 @@ namespace Project0.StoreApplication.Client
       // List<Store> populatedStores = _storeSingleton.PopulateStores();
       // _storeSingleton.SaveStores(populatedStores);
 
+      Customer selectedCustomer; //Current customer
+      Store selectedStore; //Current store with products
+      Order currentOrder = new Order(); //Current order
+      Product selectedProduct;
+
       InitStores();
       PrintCustomerId();
 
-      System.Console.WriteLine("Welcome back: " + CustomerId());
-
+      selectedCustomer = SelectCustomer();
+      System.Console.WriteLine("Welcome back: " + selectedCustomer);
+      Console.WriteLine();
       PrintAllStoreLocations();
-      var selectedStore = SelectAStore();
-      System.Console.WriteLine("You have selected the: " + selectedStore);
+      Console.WriteLine();
 
+      selectedStore = SelectAStore();
+      System.Console.WriteLine("You have selected the: " + selectedStore);
+      Console.WriteLine();
 
       PrintStoreProducts(selectedStore, _storeSingleton.Stores);
-      System.Console.WriteLine("You have added " + SelectAProduct(selectedStore) + " to the order.");
+      Console.WriteLine();
+
+      currentOrder.Customer = selectedCustomer;
+      currentOrder.StoreName = selectedStore.Name;
+      currentOrder.Products = new List<Product>();
+      do
+      {
+        selectedProduct = SelectAProduct(selectedStore);
+
+        System.Console.WriteLine("You have added " + selectedProduct + " to the order.");
+        Console.WriteLine();
+        currentOrder.Products.Add(selectedProduct);
+      }
+      while (selectedProduct != null);
+
+      Console.WriteLine("Purchase complete, see receipt below: ");
+      Console.WriteLine();
+
+      _orderSingleton.Orders.Add(currentOrder);
+      // _orderSingleton.SaveOrders();
+
+      _orderSingleton.PrintCurrentOrder(currentOrder);
+
+      var selecetedOrder = OrderList();
+      if (selecetedOrder == 1)
+      {
+        _orderSingleton.PrintOrders(selectedCustomer);
+      }
+      else if (selecetedOrder == 2)
+      {
+        _orderSingleton.PrintOrders(selectedStore);
+      }
+      else
+      {
+        Console.WriteLine("Thank you.");
+      }
+      // _orderSingleton.PrintOrders(selectedCustomer);
+      //  _orderSingleton.PrintOrders(selectedStore);
+
+      // Console.WriteLine(JsonConvert.SerializeObject(currentOrder, Formatting.Indented));
+      // possible implementation
       // HelloSQL();
+
     }
+
+    static int OrderList()
+    {
+      Console.WriteLine("1 - Show Customer orders, 2 - Show Store orders, Any key - Quit");
+      var orderList = int.Parse(Console.ReadLine());
+
+      return orderList;
+
+    }
+
 
     static void PrintAllStoreLocations()
     {
       Log.Information("Print Store");
 
-      var storeRepository = new StoreRepository();
+      // var storeRepository = new StoreRepository();
       int i = 1;
 
       foreach (var store in _storeSingleton.Stores)
       {
-        System.Console.WriteLine(i + "-" + store);
+        System.Console.WriteLine(i + " - " + store);
         i++;
       }
     }
@@ -64,15 +125,16 @@ namespace Project0.StoreApplication.Client
     {
       Log.Information("Print Id");
 
-      var customerRepository = new CustomerRepository();
+      // var customerRepository = new CustomerRepository();
       int i = 1;
 
       // foreach (var id in customerRepository.Customers)
       foreach (var id in _customerSingleton.Customers)
       {
-        System.Console.WriteLine(i + "-" + id);
+        System.Console.WriteLine("Customer ID: " + i + " - " + id);
         i++;
       }
+      Console.WriteLine();
     }
     static void PrintStoreProducts(Store x, List<Store> z)
     {
@@ -111,21 +173,28 @@ namespace Project0.StoreApplication.Client
     {
       var product = selectedStoreX.Products;
 
-      Console.WriteLine("Select a Product: ");
+      Console.WriteLine("Select a Product or 0 to purchase products: ");
 
       var option = int.Parse(Console.ReadLine());
-      var selection = product[option - 1];
+      if (option == 0)
+      {
+        return null;
+      }
+      else
+      {
+        var selection = product[option - 1];
 
-      return selection;
+        return selection;
+      }
       // does not return as expected
     }
 
-    static Customer CustomerId()
+    static Customer SelectCustomer()
     {
       //var customer = new CustomerRepository().Customers;
       var customer = _customerSingleton.Customers;
 
-      Console.WriteLine("Select a Customer Id: ");
+      Console.WriteLine("Select a Customer ID: ");
 
       var option = int.Parse(Console.ReadLine());
       var id = customer[option - 1];

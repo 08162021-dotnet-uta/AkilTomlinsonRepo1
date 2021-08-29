@@ -81,9 +81,11 @@ namespace Project0.StoreApplication.Client.Singletons
     }
     public void PrintStoreProducts(Store x)
     {
+      int i = 1;
       foreach (var product in x.Products)
       {
-        Console.WriteLine(product);
+        Console.WriteLine(i + " - " + product);
+        i++;
       }
     }
 

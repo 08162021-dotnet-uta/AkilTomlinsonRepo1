@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfOrder xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Order>
+    <Customer>
+      <Name>John</Name>
+      <Orders />
+    </Customer>
+    <StoreName>ClothingStore</StoreName>
+    <Products>
+      <Product>
+        <Name>T-Shirt</Name>
+        <Category>Clothing</Category>
+      </Product>
+    </Products>
+  </Order>
+  <Order>
+    <Customer>
+      <Name>Jane</Name>
+      <Orders />
+    </Customer>
+    <StoreName>ClothingStore</StoreName>
+    <Products>
+      <Product>
+        <Name>T-Shirt</Name>
+        <Category>Clothing</Category>
+      </Product>
+    </Products>
+  </Order>
+  <Order>
+    <Customer>
+      <Name>Jeff</Name>
+      <Orders />
+    </Customer>
+    <StoreName>ClothingStore</StoreName>
+    <Products>
+      <Product>
+        <Name>T-Shirt</Name>
+        <Category>Clothing</Category>
+      </Product>
+    </Products>
+  </Order>
+</ArrayOfOrder>
