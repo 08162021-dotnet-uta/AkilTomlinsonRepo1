@@ -7,14 +7,14 @@ namespace Project0.StoreApplication.Domain.Abstracts
   [XmlInclude(typeof(ClothingStore))]
   [XmlInclude(typeof(GroceryStore))]
   [XmlInclude(typeof(JeweleryStore))]
-  public abstract class Store
+  public class Store
   {
     public string Name { get; set; }
-
-
     public List<Product> Products { get; set; }
 
     public List<Order> Orders { get; set; }
+    public int StoreId { get; set; }
+
 
     public override string ToString()
     {

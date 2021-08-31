@@ -14,7 +14,7 @@ namespace Project0.StoreApplication.Client
   /// <summary>
   /// Defines the Program class
   /// </summary>
-  class Program
+  public class Program
   {
     private static readonly CustomerSingleton _customerSingleton = CustomerSingleton.Instance;
     private static readonly StoreSingleton _storeSingleton = StoreSingleton.Instance;
@@ -60,20 +60,29 @@ namespace Project0.StoreApplication.Client
       do
       {
         selectedProduct = SelectAProduct(selectedStore);
-
-        System.Console.WriteLine("You have added " + selectedProduct + " to the order.");
-        Console.WriteLine();
-        currentOrder.Products.Add(selectedProduct);
+        if (selectedProduct != null)
+        {
+          System.Console.WriteLine("You have added " + selectedProduct + " to the order.");
+          Console.WriteLine();
+          currentOrder.Products.Add(selectedProduct);
+        }
       }
       while (selectedProduct != null);
 
-      Console.WriteLine("Purchase complete, see receipt below: ");
-      Console.WriteLine();
+      if (currentOrder.Products.Count > 0)
+      {
+        Console.WriteLine("Purchase complete, see receipt below: ");
+        Console.WriteLine();
 
-      _orderSingleton.Orders.Add(currentOrder);
-      // _orderSingleton.SaveOrders();
+        _orderSingleton.Orders.Add(currentOrder);
+        // _orderSingleton.SaveOrders();
 
-      _orderSingleton.PrintCurrentOrder(currentOrder);
+        _orderSingleton.PrintCurrentOrder(currentOrder);
+      }
+      else
+      {
+        Console.WriteLine("You have not purchased any products.");
+      }
 
       var selecetedOrder = OrderList();
       if (selecetedOrder == 1)
@@ -88,19 +97,28 @@ namespace Project0.StoreApplication.Client
       {
         Console.WriteLine("Thank you.");
       }
+
       // _orderSingleton.PrintOrders(selectedCustomer);
       //  _orderSingleton.PrintOrders(selectedStore);
 
       // Console.WriteLine(JsonConvert.SerializeObject(currentOrder, Formatting.Indented));
       // possible implementation
-      // HelloSQL();
+
 
     }
 
     static int OrderList()
     {
       Console.WriteLine("1 - Show Customer orders, 2 - Show Store orders, Any key - Quit");
-      var orderList = int.Parse(Console.ReadLine());
+      int orderList;
+      try
+      {
+        orderList = int.Parse(Console.ReadLine());
+      }
+      catch
+      {
+        orderList = 0;
+      }
 
       return orderList;
 
@@ -163,8 +181,32 @@ namespace Project0.StoreApplication.Client
       var location = _storeSingleton.Stores;
 
       Console.WriteLine("Select a Store: ");
-
-      var option = int.Parse(Console.ReadLine());
+      Boolean validInput = false;
+      int option;
+      try
+      {
+        option = int.Parse(Console.ReadLine());
+      }
+      catch
+      {
+        option = 0;
+      }
+      while (!validInput)
+      {
+        if (option <= 0 || option > _customerSingleton.Customers.Count)
+        {
+          Console.WriteLine("Please select a correct Store: 1, 2 or 3");
+          try
+          {
+            option = int.Parse(Console.ReadLine());
+          }
+          catch
+          {
+            option = 0;
+          }
+        }
+        else validInput = true;
+      }
       var store = location[option - 1];
 
       return store;
@@ -172,10 +214,35 @@ namespace Project0.StoreApplication.Client
     static Product SelectAProduct(Store selectedStoreX)
     {
       var product = selectedStoreX.Products;
+      Boolean validInput = false;
+      int option;
 
       Console.WriteLine("Select a Product or 0 to purchase products: ");
+      try
+      {
+        option = int.Parse(Console.ReadLine());
+      }
+      catch
+      {
+        option = -1;
+      }
+      while (!validInput)
+      {
+        if (option < 0 || option > _customerSingleton.Customers.Count)
+        {
+          Console.WriteLine("Please select a correct Product: 1, 2 or 3");
+          try
+          {
+            option = int.Parse(Console.ReadLine());
+          }
+          catch
+          {
+            option = -1;
+          }
+        }
+        else validInput = true;
+      }
 
-      var option = int.Parse(Console.ReadLine());
       if (option == 0)
       {
         return null;
@@ -186,7 +253,6 @@ namespace Project0.StoreApplication.Client
 
         return selection;
       }
-      // does not return as expected
     }
 
     static Customer SelectCustomer()
@@ -195,30 +261,43 @@ namespace Project0.StoreApplication.Client
       var customer = _customerSingleton.Customers;
 
       Console.WriteLine("Select a Customer ID: ");
-
-      var option = int.Parse(Console.ReadLine());
+      Boolean validInput = false;
+      int option;
+      try
+      {
+        option = int.Parse(Console.ReadLine());
+      }
+      catch
+      {
+        option = 0;
+      }
+      while (!validInput)
+      {
+        if (option <= 0 || option > _customerSingleton.Customers.Count)
+        {
+          Console.WriteLine("Please select a correct ID: 1, 2 or 3");
+          try
+          {
+            option = int.Parse(Console.ReadLine());
+          }
+          catch
+          {
+            option = 0;
+          }
+        }
+        else validInput = true;
+      }
       var id = customer[option - 1];
 
       return id;
     }
-
+    /// <summary>
+    /// Initializes and populates stores
+    /// </summary>
     static void InitStores()
     {
       var populate = _storeSingleton;
       populate.PopulateStores();
-    }
-    /// <summary>
-    /// Testing db connection
-    /// </summary>
-    private static void HelloSQL()
-    {
-      var def = new DemoEF();
-
-      foreach (var item in def.GetCustomers())
-      {
-        Console.WriteLine(item);
-      }
-
     }
 
   }

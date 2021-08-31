@@ -100,28 +100,11 @@ ALTER TABLE Store.OrderProduct
 
 ALTER TABLE Store.[Order] 
     ADD CONSTRAINT CK_Order CHECK (OrderDate <= GETDATE());                 
-GO
+
 -- Drop
 --DROP DATABASE StoreApplicationDB;
 --DROP SCHEMA Customer;
 --DROP TABLE Customer.Customer;
 
 -- Truncate
---TRUNCATE TABLE Customer.Customer;
-
---STORED PROCEDURE
-CREATE PROCEDURE SP_AddCustomer(@name NVARCHAR(100))
-AS
-BEGIN
-    DECLARE @result NVARCHAR(100);
-
-    SELECT @result = [Name] 
-    FROM Customer.Customer
-    WHERE [Name] = @name;
-
-    if(@result IS NULL)
-    BEGIN
-        INSERT into Customer.Customer([Name])
-        VALUES (@name);
-    END
-END
+TRUNCATE TABLE Customer.Customer;
