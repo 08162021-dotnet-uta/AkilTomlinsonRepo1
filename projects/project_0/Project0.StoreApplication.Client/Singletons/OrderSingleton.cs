@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Project0.StoreApplication.Domain.Abstracts;
 using Project0.StoreApplication.Domain.Models;
 using Project0.StoreApplication.Storage.Repositories;
+using Serilog;
 
 namespace Project0.StoreApplication.Client.Singletons
 {
@@ -81,6 +82,24 @@ namespace Project0.StoreApplication.Client.Singletons
           }
         }
       }
+
+    }
+
+    public int OrderList()
+    {
+      Console.WriteLine("1 - Show Customer orders, 2 - Show Store orders, Any key - Quit");
+      int orderList;
+      try
+      {
+        orderList = int.Parse(Console.ReadLine());
+      }
+      catch
+      {
+        Log.Information("Quit without checking past orders.");
+        orderList = 0;
+      }
+
+      return orderList;
 
     }
   }

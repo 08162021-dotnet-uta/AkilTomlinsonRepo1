@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
 using Project0.StoreApplication.Client.Singletons;
 using Project0.StoreApplication.Domain.Abstracts;
 using Project0.StoreApplication.Domain.Models;
-using Project0.StoreApplication.Storage;
-using Project0.StoreApplication.Storage.Repositories;
 using Serilog;
 
 
@@ -28,30 +25,31 @@ namespace Project0.StoreApplication.Client
 
     static void Main(string[] args)
     {
-      // Should log to file where the user goes in the program
-      // Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
-      // List<Store> populatedStores = _storeSingleton.PopulateStores();
-      // _storeSingleton.SaveStores(populatedStores);
+      StartApp();
+    }
+    static void StartApp()
+    {
+      Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
 
       Customer selectedCustomer; //Current customer
       Store selectedStore; //Current store with products
       Order currentOrder = new Order(); //Current order
-      Product selectedProduct;
+      Product selectedProduct; //product to be added to order
 
-      InitStores();
-      PrintCustomerId();
+      _storeSingleton.PopulateStores();
+      _customerSingleton.PrintCustomerId();
 
       selectedCustomer = SelectCustomer();
       System.Console.WriteLine("Welcome back: " + selectedCustomer);
       Console.WriteLine();
-      PrintAllStoreLocations();
+      _storeSingleton.PrintAllStoreLocations();
       Console.WriteLine();
 
       selectedStore = SelectAStore();
       System.Console.WriteLine("You have selected the: " + selectedStore);
       Console.WriteLine();
 
-      PrintStoreProducts(selectedStore, _storeSingleton.Stores);
+      _storeSingleton.PrintStoreProducts(selectedStore, _storeSingleton.Stores);
       Console.WriteLine();
 
       currentOrder.Customer = selectedCustomer;
@@ -81,10 +79,11 @@ namespace Project0.StoreApplication.Client
       }
       else
       {
+        Log.Warning("Selected purchase with an empty order.");
         Console.WriteLine("You have not purchased any products.");
       }
 
-      var selecetedOrder = OrderList();
+      var selecetedOrder = _orderSingleton.OrderList();
       if (selecetedOrder == 1)
       {
         _orderSingleton.PrintOrders(selectedCustomer);
@@ -98,84 +97,7 @@ namespace Project0.StoreApplication.Client
         Console.WriteLine("Thank you.");
       }
 
-      // _orderSingleton.PrintOrders(selectedCustomer);
-      //  _orderSingleton.PrintOrders(selectedStore);
-
-      // Console.WriteLine(JsonConvert.SerializeObject(currentOrder, Formatting.Indented));
-      // possible implementation
-
-
     }
-
-    static int OrderList()
-    {
-      Console.WriteLine("1 - Show Customer orders, 2 - Show Store orders, Any key - Quit");
-      int orderList;
-      try
-      {
-        orderList = int.Parse(Console.ReadLine());
-      }
-      catch
-      {
-        orderList = 0;
-      }
-
-      return orderList;
-
-    }
-
-
-    static void PrintAllStoreLocations()
-    {
-      Log.Information("Print Store");
-
-      // var storeRepository = new StoreRepository();
-      int i = 1;
-
-      foreach (var store in _storeSingleton.Stores)
-      {
-        System.Console.WriteLine(i + " - " + store);
-        i++;
-      }
-    }
-
-    static void PrintCustomerId()
-    {
-      Log.Information("Print Id");
-
-      // var customerRepository = new CustomerRepository();
-      int i = 1;
-
-      // foreach (var id in customerRepository.Customers)
-      foreach (var id in _customerSingleton.Customers)
-      {
-        System.Console.WriteLine("Customer ID: " + i + " - " + id);
-        i++;
-      }
-      Console.WriteLine();
-    }
-    static void PrintStoreProducts(Store x, List<Store> z)
-    {
-
-      Console.WriteLine("Products for sale: ");
-      var storesSigleton = _storeSingleton;
-      foreach (var y in z)
-      {
-        if (x.Name == y.Name)
-        {
-          storesSigleton.PrintStoreProducts(y);
-        }
-      }
-
-      // var productRepository = new ProductRepository();
-
-      // foreach (var product in productRepository.Products)
-      // {
-      //   System.Console.WriteLine(product);
-
-      // }
-    }
-
     static Store SelectAStore()
     {
       var location = _storeSingleton.Stores;
@@ -195,6 +117,7 @@ namespace Project0.StoreApplication.Client
       {
         if (option <= 0 || option > _customerSingleton.Customers.Count)
         {
+          Log.Warning("Store selection incorrect.");
           Console.WriteLine("Please select a correct Store: 1, 2 or 3");
           try
           {
@@ -211,9 +134,9 @@ namespace Project0.StoreApplication.Client
 
       return store;
     }
-    static Product SelectAProduct(Store selectedStoreX)
+    static Product SelectAProduct(Store inputStore)
     {
-      var product = selectedStoreX.Products;
+      var product = inputStore.Products;
       Boolean validInput = false;
       int option;
 
@@ -230,6 +153,7 @@ namespace Project0.StoreApplication.Client
       {
         if (option < 0 || option > _customerSingleton.Customers.Count)
         {
+          Log.Warning("Product selection incorrect.");
           Console.WriteLine("Please select a correct Product: 1, 2 or 3");
           try
           {
@@ -257,7 +181,6 @@ namespace Project0.StoreApplication.Client
 
     static Customer SelectCustomer()
     {
-      //var customer = new CustomerRepository().Customers;
       var customer = _customerSingleton.Customers;
 
       Console.WriteLine("Select a Customer ID: ");
@@ -275,6 +198,7 @@ namespace Project0.StoreApplication.Client
       {
         if (option <= 0 || option > _customerSingleton.Customers.Count)
         {
+          Log.Warning("Customer ID selection incorrect.");
           Console.WriteLine("Please select a correct ID: 1, 2 or 3");
           try
           {
@@ -290,14 +214,6 @@ namespace Project0.StoreApplication.Client
       var id = customer[option - 1];
 
       return id;
-    }
-    /// <summary>
-    /// Initializes and populates stores
-    /// </summary>
-    static void InitStores()
-    {
-      var populate = _storeSingleton;
-      populate.PopulateStores();
     }
 
   }

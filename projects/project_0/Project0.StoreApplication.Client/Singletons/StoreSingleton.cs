@@ -40,6 +40,10 @@ namespace Project0.StoreApplication.Client.Singletons
       _storeRepository.Save(stores);
       Stores = _storeRepository.Select();
     }
+    /// <summary>
+    /// Populates stores by category
+    /// </summary>
+    /// <returns></returns>
     public List<Store> PopulateStores()
     {
       var storeRepository = new StoreRepository();
@@ -79,6 +83,10 @@ namespace Project0.StoreApplication.Client.Singletons
       }
       return _storeSingleton.Stores;
     }
+    /// <summary>
+    /// Prints products for specific store
+    /// </summary>
+    /// <param name="x"></param>
     public void PrintStoreProducts(Store x)
     {
       int i = 1;
@@ -86,6 +94,28 @@ namespace Project0.StoreApplication.Client.Singletons
       {
         Console.WriteLine(i + " - " + product);
         i++;
+      }
+    }
+    public void PrintAllStoreLocations()
+    {
+      int i = 1;
+      foreach (var store in Stores)
+      {
+        System.Console.WriteLine(i + " - " + store);
+        i++;
+      }
+    }
+    public void PrintStoreProducts(Store x, List<Store> z)
+    {
+
+      Console.WriteLine("Products for sale: ");
+      var storesSingleton = _storeSingleton;
+      foreach (var y in z)
+      {
+        if (x.Name == y.Name)
+        {
+          PrintStoreProducts(y);
+        }
       }
     }
 

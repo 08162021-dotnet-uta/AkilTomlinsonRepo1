@@ -59,6 +59,7 @@ namespace Project.StoreApplication.Testing
 
       Assert.NotNull(actual);
     }
+
     [Fact]
     public void Test_CustomersDB()
     {
@@ -71,6 +72,7 @@ namespace Project.StoreApplication.Testing
 
       Assert.NotNull(actual);
     }
+
     [Fact]
     public void Test_StoreProduct()
     {

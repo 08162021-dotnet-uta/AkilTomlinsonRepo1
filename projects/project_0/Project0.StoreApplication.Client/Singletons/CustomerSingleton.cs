@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Project0.StoreApplication.Domain.Models;
 using Project0.StoreApplication.Storage.Repositories;
@@ -32,6 +33,20 @@ namespace Project0.StoreApplication.Client.Singletons
     {
       _customerRepository.Insert(customer);
       Customers = _customerRepository.Select();
+    }
+
+    public void PrintCustomerId()
+    {
+      // var customerRepository = new CustomerRepository();
+      int i = 1;
+
+      // foreach (var id in customerRepository.Customers)
+      foreach (var id in _customerSingleton.Customers)
+      {
+        System.Console.WriteLine("Customer ID: " + i + " - " + id);
+        i++;
+      }
+      Console.WriteLine();
     }
     // private CustomerSingleton()
     // {

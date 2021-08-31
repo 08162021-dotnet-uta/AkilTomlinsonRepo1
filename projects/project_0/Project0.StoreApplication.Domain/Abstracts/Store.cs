@@ -7,6 +7,10 @@ namespace Project0.StoreApplication.Domain.Abstracts
   [XmlInclude(typeof(ClothingStore))]
   [XmlInclude(typeof(GroceryStore))]
   [XmlInclude(typeof(JeweleryStore))]
+
+  /// <summary>
+  /// 
+  /// </summary>
   public class Store
   {
     public string Name { get; set; }
