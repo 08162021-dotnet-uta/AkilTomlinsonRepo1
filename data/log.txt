@@ -1,0 +1,28 @@
+2021-08-31 20:15:47.534 -04:00 [WRN] Customer ID selection incorrect.
+2021-08-31 20:15:48.265 -04:00 [WRN] Customer ID selection incorrect.
+2021-08-31 20:15:50.973 -04:00 [WRN] Product selection incorrect.
+2021-08-31 20:15:51.618 -04:00 [WRN] Product selection incorrect.
+2021-08-31 20:16:05.566 -04:00 [INF] Quit without checking past orders.
+2021-08-31 20:16:33.841 -04:00 [WRN] Customer ID selection incorrect.
+2021-08-31 20:16:41.361 -04:00 [WRN] Selected purchase with an empty order.
+2021-08-31 21:36:26.459 -04:00 [WRN] Customer ID selection incorrect.
+2021-08-31 21:37:05.895 -04:00 [WRN] Customer ID selection incorrect.
+2021-08-31 21:37:07.292 -04:00 [WRN] Customer ID selection incorrect.
+2021-08-31 21:37:13.154 -04:00 [WRN] Store selection incorrect.
+2021-08-31 21:37:14.535 -04:00 [WRN] Store selection incorrect.
+2021-08-31 21:37:28.918 -04:00 [WRN] Product selection incorrect.
+2021-08-31 21:37:30.010 -04:00 [WRN] Product selection incorrect.
+2021-08-31 21:37:30.688 -04:00 [WRN] Product selection incorrect.
+2021-08-31 21:37:37.932 -04:00 [INF] Quit without checking past orders.
+2021-09-01 01:54:44.738 -04:00 [WRN] Customer ID selection incorrect.
+2021-09-01 01:54:59.275 -04:00 [WRN] Customer ID selection incorrect.
+2021-09-01 01:55:07.884 -04:00 [WRN] Selected purchase with an empty order.
+2021-09-01 01:55:10.812 -04:00 [INF] Quit without checking past orders.
+2021-09-01 01:56:29.173 -04:00 [WRN] Selected purchase with an empty order.
+2021-09-01 01:56:31.477 -04:00 [INF] Quit without checking past orders.
+2021-09-01 01:56:43.873 -04:00 [INF] Quit without checking past orders.
+2021-09-01 02:01:26.734 -04:00 [WRN] Selected purchase with an empty order.
+2021-09-01 02:01:38.405 -04:00 [INF] Quit without checking past orders.
+2021-09-01 02:02:25.054 -04:00 [WRN] Product selection incorrect.
+2021-09-01 02:02:29.165 -04:00 [WRN] Product selection incorrect.
+2021-09-01 02:04:26.611 -04:00 [INF] Quit without checking past orders.

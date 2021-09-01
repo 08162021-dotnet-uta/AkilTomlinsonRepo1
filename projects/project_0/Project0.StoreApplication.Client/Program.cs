@@ -17,7 +17,7 @@ namespace Project0.StoreApplication.Client
     private static readonly StoreSingleton _storeSingleton = StoreSingleton.Instance;
     private static readonly ProductSingleton _productSingleton = ProductSingleton.Instance;
     private static readonly OrderSingleton _orderSingleton = OrderSingleton.Instance;
-
+    private const string _logFilePath = @"/Users/atmac/revature/akil_repo/data/log.txt";
     /// <summary>
     /// Defines the Main Method
     /// </summary>
@@ -27,9 +27,10 @@ namespace Project0.StoreApplication.Client
     {
       StartApp();
     }
+
     static void StartApp()
     {
-      Log.Logger = new LoggerConfiguration().WriteTo.Console().CreateLogger();
+      Log.Logger = new LoggerConfiguration().WriteTo.File(_logFilePath).CreateLogger();
 
       Customer selectedCustomer; //Current customer
       Store selectedStore; //Current store with products
@@ -73,7 +74,7 @@ namespace Project0.StoreApplication.Client
         Console.WriteLine();
 
         _orderSingleton.Orders.Add(currentOrder);
-        // _orderSingleton.SaveOrders();
+        _orderSingleton.SaveOrders();
 
         _orderSingleton.PrintCurrentOrder(currentOrder);
       }
@@ -87,10 +88,12 @@ namespace Project0.StoreApplication.Client
       if (selecetedOrder == 1)
       {
         _orderSingleton.PrintOrders(selectedCustomer);
+        Console.WriteLine();
       }
       else if (selecetedOrder == 2)
       {
         _orderSingleton.PrintOrders(selectedStore);
+        Console.WriteLine();
       }
       else
       {
@@ -98,6 +101,10 @@ namespace Project0.StoreApplication.Client
       }
 
     }
+    /// <summary>
+    /// Checks input to select a store, outputs store if input correct.
+    /// </summary>
+    /// <returns></returns>
     static Store SelectAStore()
     {
       var location = _storeSingleton.Stores;
@@ -134,6 +141,11 @@ namespace Project0.StoreApplication.Client
 
       return store;
     }
+    /// <summary>
+    /// Checks input to select a product, outputs product to be added to order if input correct.
+    /// </summary>
+    /// <param name="inputStore"></param>
+    /// <returns></returns>
     static Product SelectAProduct(Store inputStore)
     {
       var product = inputStore.Products;
@@ -178,7 +190,10 @@ namespace Project0.StoreApplication.Client
         return selection;
       }
     }
-
+    /// <summary>
+    /// Checks input to select a customer, outputs customer if input correct.
+    /// </summary>
+    /// <returns></returns>
     static Customer SelectCustomer()
     {
       var customer = _customerSingleton.Customers;

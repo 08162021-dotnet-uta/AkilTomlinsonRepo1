@@ -29,7 +29,11 @@ namespace Project0.StoreApplication.Storage.Repositories
 
       return true;
     }
-
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="entry"></param>
+    /// <returns></returns>
     public bool Save(List<Order> entry)
     {
       _fileAdapter.WriteToFile<Order>(_path, entry);

@@ -31,7 +31,10 @@ namespace Project0.StoreApplication.Storage.Repositories
 
       return true;
     }
-
+    /// <summary>
+    /// Gets customers from the database
+    /// </summary>
+    /// <returns></returns>
     public List<Customer> Select()
     {
       var custDB = new CustomerRepositoryDB();
@@ -44,19 +47,4 @@ namespace Project0.StoreApplication.Storage.Repositories
       throw new System.NotImplementedException();
     }
   }
-
-  // public class CustomerRepository
-  // {
-  //   public List<Customer> Customers { get; }
-
-  //   public CustomerRepository()
-  //   {
-  //     Customers = new List<Customer>()
-  //     {
-  //       new Customer(),
-  //       new Customer(),
-  //       new Customer()
-  //     };
-  //   }
-  // }
 }

@@ -9,7 +9,10 @@ namespace Project0.StoreApplication.Storage
   public class CustomerRepositoryDB
   {
     private readonly DataAdapter _dataAdapter = new DataAdapter();
-
+    /// <summary>
+    /// Pulls customer list from database
+    /// </summary>
+    /// <returns></returns>
     public List<Customer> GetCustomers()
     {
       return _dataAdapter.Customers.FromSqlRaw("select * from Customer.Customer").ToList();

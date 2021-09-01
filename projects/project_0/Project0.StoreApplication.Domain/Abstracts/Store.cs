@@ -9,7 +9,7 @@ namespace Project0.StoreApplication.Domain.Abstracts
   [XmlInclude(typeof(JeweleryStore))]
 
   /// <summary>
-  /// 
+  /// No longer abstract due to database implementation
   /// </summary>
   public class Store
   {

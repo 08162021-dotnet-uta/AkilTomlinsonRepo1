@@ -24,6 +24,9 @@ namespace Project0.StoreApplication.Client.Singletons
         return _customerSingleton;
       }
     }
+    /// <summary>
+    /// Populates the customers list
+    /// </summary>
     private CustomerSingleton()
     {
       Customers = _customerRepository.Select();
@@ -34,23 +37,20 @@ namespace Project0.StoreApplication.Client.Singletons
       _customerRepository.Insert(customer);
       Customers = _customerRepository.Select();
     }
-
+    /// <summary>
+    /// Prints customer list to console
+    /// </summary>
     public void PrintCustomerId()
     {
-      // var customerRepository = new CustomerRepository();
       int i = 1;
 
-      // foreach (var id in customerRepository.Customers)
-      foreach (var id in _customerSingleton.Customers)
+      foreach (var id in Customers)
       {
         System.Console.WriteLine("Customer ID: " + i + " - " + id);
         i++;
       }
       Console.WriteLine();
     }
-    // private CustomerSingleton()
-    // {
-    //   Cusomters = _customerRepository.Get();
-    // }
+
   }
 }

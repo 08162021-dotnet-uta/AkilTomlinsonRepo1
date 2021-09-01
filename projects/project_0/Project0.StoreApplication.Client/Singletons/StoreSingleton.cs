@@ -96,6 +96,9 @@ namespace Project0.StoreApplication.Client.Singletons
         i++;
       }
     }
+    /// <summary>
+    /// Prints list of stores"
+    /// </summary>
     public void PrintAllStoreLocations()
     {
       int i = 1;
@@ -105,6 +108,11 @@ namespace Project0.StoreApplication.Client.Singletons
         i++;
       }
     }
+    /// <summary>
+    /// Prints products based on store selected
+    /// </summary>
+    /// <param name="x"></param>
+    /// <param name="z"></param>
     public void PrintStoreProducts(Store x, List<Store> z)
     {
 

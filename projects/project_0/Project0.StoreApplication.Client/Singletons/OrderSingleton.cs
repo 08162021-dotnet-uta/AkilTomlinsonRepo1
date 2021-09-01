@@ -41,7 +41,10 @@ namespace Project0.StoreApplication.Client.Singletons
       _orderRepository.Save(Orders);
       Orders = _orderRepository.Select();
     }
-
+    /// <summary>
+    /// Prints order just purchased
+    /// </summary>
+    /// <param name="order"></param>
     public void PrintCurrentOrder(Order order)
     {
       Console.WriteLine(order.Customer + " " + order.StoreName);
@@ -52,6 +55,10 @@ namespace Project0.StoreApplication.Client.Singletons
 
 
     }
+    /// <summary>
+    /// Prints orders by customer
+    /// </summary>
+    /// <param name="customer"></param>
     public void PrintOrders(Customer customer)
     {
       foreach (var order in Orders)
@@ -68,6 +75,10 @@ namespace Project0.StoreApplication.Client.Singletons
       }
 
     }
+    /// <summary>
+    /// Prints orders by Store
+    /// </summary>
+    /// <param name="store"></param>
 
     public void PrintOrders(Store store)
     {
@@ -84,7 +95,10 @@ namespace Project0.StoreApplication.Client.Singletons
       }
 
     }
-
+    /// <summary>
+    ///  View customer orders, view store orders, end program
+    /// </summary>
+    /// <returns></returns>
     public int OrderList()
     {
       Console.WriteLine("1 - Show Customer orders, 2 - Show Store orders, Any key - Quit");
