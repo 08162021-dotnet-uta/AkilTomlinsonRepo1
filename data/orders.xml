@@ -147,6 +147,7 @@
   <Order>
     <Customer>
       <Name>Jeff</Name>
+      <Orders />
       <CustomerId>3</CustomerId>
     </Customer>
     <StoreName>JeweleryStore</StoreName>
@@ -154,6 +155,104 @@
       <Product>
         <Name>Necklace</Name>
         <Category>Jewelery</Category>
+        <ProductId>0</ProductId>
+      </Product>
+    </Products>
+    <OrderId>0</OrderId>
+  </Order>
+  <Order>
+    <Customer>
+      <Name>John</Name>
+      <Orders />
+      <CustomerId>1</CustomerId>
+    </Customer>
+    <StoreName>GroceryStore</StoreName>
+    <Products>
+      <Product>
+        <Name>Eggs</Name>
+        <Category>Grocery</Category>
+        <ProductId>0</ProductId>
+      </Product>
+      <Product>
+        <Name>Bacon</Name>
+        <Category>Grocery</Category>
+        <ProductId>0</ProductId>
+      </Product>
+      <Product>
+        <Name>Cereal</Name>
+        <Category>Grocery</Category>
+        <ProductId>0</ProductId>
+      </Product>
+    </Products>
+    <OrderId>0</OrderId>
+  </Order>
+  <Order>
+    <Customer>
+      <Name>Jane</Name>
+      <Orders />
+      <CustomerId>2</CustomerId>
+    </Customer>
+    <StoreName>JeweleryStore</StoreName>
+    <Products>
+      <Product>
+        <Name>Necklace</Name>
+        <Category>Jewelery</Category>
+        <ProductId>0</ProductId>
+      </Product>
+      <Product>
+        <Name>Ring</Name>
+        <Category>Jewelery</Category>
+        <ProductId>0</ProductId>
+      </Product>
+      <Product>
+        <Name>Bracelet</Name>
+        <Category>Jewelery</Category>
+        <ProductId>0</ProductId>
+      </Product>
+    </Products>
+    <OrderId>0</OrderId>
+  </Order>
+  <Order>
+    <Customer>
+      <Name>Jane</Name>
+      <Orders />
+      <CustomerId>2</CustomerId>
+    </Customer>
+    <StoreName>ClothingStore</StoreName>
+    <Products>
+      <Product>
+        <Name>Jeans</Name>
+        <Category>Clothing</Category>
+        <ProductId>0</ProductId>
+      </Product>
+    </Products>
+    <OrderId>0</OrderId>
+  </Order>
+  <Order>
+    <Customer>
+      <Name>John</Name>
+      <CustomerId>1</CustomerId>
+    </Customer>
+    <StoreName>GroceryStore</StoreName>
+    <Products>
+      <Product>
+        <Name>Bacon</Name>
+        <Category>Grocery</Category>
+        <ProductId>0</ProductId>
+      </Product>
+      <Product>
+        <Name>Eggs</Name>
+        <Category>Grocery</Category>
+        <ProductId>0</ProductId>
+      </Product>
+      <Product>
+        <Name>Eggs</Name>
+        <Category>Grocery</Category>
+        <ProductId>0</ProductId>
+      </Product>
+      <Product>
+        <Name>Eggs</Name>
+        <Category>Grocery</Category>
         <ProductId>0</ProductId>
       </Product>
     </Products>
