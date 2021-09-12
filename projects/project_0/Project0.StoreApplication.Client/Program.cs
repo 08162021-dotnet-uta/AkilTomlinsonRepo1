@@ -231,5 +231,5 @@ namespace Project0.StoreApplication.Client
       return id;
     }
 
-  }
-}
+  }//EoC
+}//EoN

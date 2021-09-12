@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.810.8
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreApp", "StoreApp\StoreApp.csproj", "{702966D1-BFF2-4914-9B74-6DBE2D1B10FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAppDBContext", "StoreAppDBContext\StoreAppDBContext.csproj", "{0FF07CE9-1692-4062-9F7B-A5911C9BFCCE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{702966D1-BFF2-4914-9B74-6DBE2D1B10FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{702966D1-BFF2-4914-9B74-6DBE2D1B10FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{702966D1-BFF2-4914-9B74-6DBE2D1B10FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{702966D1-BFF2-4914-9B74-6DBE2D1B10FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FF07CE9-1692-4062-9F7B-A5911C9BFCCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FF07CE9-1692-4062-9F7B-A5911C9BFCCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FF07CE9-1692-4062-9F7B-A5911C9BFCCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FF07CE9-1692-4062-9F7B-A5911C9BFCCE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {499676C8-DC16-4C5B-A478-BF4B78D8FFB8}
+	EndGlobalSection
+EndGlobal
