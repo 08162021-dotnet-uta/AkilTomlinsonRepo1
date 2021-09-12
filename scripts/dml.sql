@@ -14,8 +14,8 @@ VALUES ('Grocery'), ('Clothing'), ('Jewelery');
 
 -- UPDATE
 UPDATE Customer.Customer
-SET [Name] = 'Akil'
-WHERE [Name] = 'akil';
+SET [Name] = 'John'
+WHERE [Name] = 'Akil';
 
 -- DELETE
 DELETE Customer.Customer
