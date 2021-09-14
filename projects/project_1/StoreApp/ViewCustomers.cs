@@ -1,6 +1,6 @@
 namespace StoreApp
 {
-  public class Customer
+  public class ViewCustomers
   {
     private string firstname;
     public string Firstname

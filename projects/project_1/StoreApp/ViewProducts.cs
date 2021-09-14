@@ -1,6 +1,6 @@
 namespace StoreApp
 {
-  public class Product
+  public class ViewProducts
   {
     public string ProductName { get; set; }
     public string ProductDescription { get; set; }

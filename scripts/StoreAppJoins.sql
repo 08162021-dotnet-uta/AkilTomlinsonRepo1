@@ -37,7 +37,7 @@ inner join StoreProduct
 on StoreProduct.StoreId = Store.StoreId
 inner join Product
 on Product.ProductId = StoreProduct.ProductId
-where StoreName = 'Bakery'
+where Store.StoreId = 1
 
 select Store.StoreName, Product.ProductName, Product.ProductPrice
 from Store

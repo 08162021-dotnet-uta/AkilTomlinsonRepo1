@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreApp", "StoreApp\StoreA
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAppDBContext", "StoreAppDBContext\StoreAppDBContext.csproj", "{0FF07CE9-1692-4062-9F7B-A5911C9BFCCE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreAppBusiness", "StoreAppBusiness\StoreAppBusiness.csproj", "{761650DE-BFDD-4C43-9C76-0D9B95CA0F97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreApp.Tests", "StoreApp.Tests\StoreApp.Tests.csproj", "{DDA0F091-AD6E-4D2D-B972-FD24E1F97772}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{0FF07CE9-1692-4062-9F7B-A5911C9BFCCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FF07CE9-1692-4062-9F7B-A5911C9BFCCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FF07CE9-1692-4062-9F7B-A5911C9BFCCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{761650DE-BFDD-4C43-9C76-0D9B95CA0F97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{761650DE-BFDD-4C43-9C76-0D9B95CA0F97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{761650DE-BFDD-4C43-9C76-0D9B95CA0F97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{761650DE-BFDD-4C43-9C76-0D9B95CA0F97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DDA0F091-AD6E-4D2D-B972-FD24E1F97772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DDA0F091-AD6E-4D2D-B972-FD24E1F97772}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DDA0F091-AD6E-4D2D-B972-FD24E1F97772}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DDA0F091-AD6E-4D2D-B972-FD24E1F97772}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
