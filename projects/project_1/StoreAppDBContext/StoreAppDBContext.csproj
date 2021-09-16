@@ -30,4 +30,7 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.9" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StoreApp\StoreApp.csproj" />
+  </ItemGroup>
 </Project>

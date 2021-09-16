@@ -19,4 +19,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\StoreAppBusiness\StoreAppBusiness.csproj" />
+    <ProjectReference Include="..\StoreApp\StoreApp.csproj" />
+  </ItemGroup>
 </Project>

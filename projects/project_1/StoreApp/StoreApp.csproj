@@ -21,8 +21,4 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="5.0.9" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\StoreAppDBContext\StoreAppDBContext.csproj" />
-    <ProjectReference Include="..\StoreAppBusiness\StoreAppBusiness.csproj" />
-  </ItemGroup>
 </Project>

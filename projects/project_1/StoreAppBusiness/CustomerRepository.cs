@@ -1,44 +1,85 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using StoreAppBusiness.Interfaces;
 using StoreAppDBContext.Models;
 using dbcust = StoreAppDBContext.Models.Customer;
 
 namespace StoreAppBusiness
 {
-    public class CustomerRepository
+  public class CustomerRepository : ICustomerRepository
+  {
+    public AkilApplicationDBContext _context;
+
+    public CustomerRepository(AkilApplicationDBContext context)
     {
-        public AkilApplicationDBContext context = new AkilApplicationDBContext();
-
-        public void CustomerList()
-        {
-            var customers = context.Customers.FromSqlRaw<dbcust>("SELECT * FROM Customer").ToList();
-            foreach (var x in customers)
-            {
-                Console.WriteLine("Customer " + $"{x.CustomerId}" + ": " + $"{x.FirstName} {x.LastName}");
-               
-
-            }
-        }
-
-        public void CustOrderList(string customer)
-        {
-            string statement = $"SELECT * FROM ViewStoreOrders WHERE CustomerId={customer}";
-            var storeOrder = context.ViewStoreOrders.FromSqlRaw(statement).ToList();
-
-            foreach (var x in storeOrder)
-            {
-                Console.WriteLine($"{x.OrderId} {x.FirstName} {x.ProductName} {x.ProductPrice} {x.Quantity}");
-
-            }
-        }
-
-
-
-
-
-        public CustomerRepository()
-        {
-        }
+      _context = context;
     }
+
+    public async Task<List<Customer>> CustomerListAsync()
+    {
+      List<dbcust> customers = await _context.Customers.FromSqlRaw<dbcust>("SELECT * FROM Customer").ToListAsync();
+      List<dbcust> cust = new List<dbcust>();
+
+
+      foreach (Customer x in customers)
+      {
+        cust.Add(x);
+      }
+      return cust;
+    }
+
+    public void CustOrderList()
+    {
+      string statement = "SELECT * FROM ViewStoreOrders";
+      var storeOrder = _context.ViewStoreOrders.FromSqlRaw(statement).ToList();
+
+      foreach (var x in storeOrder)
+      {
+        Console.WriteLine($"{x.OrderId} {x.FirstName} {x.ProductName} {x.ProductPrice} {x.Quantity}");
+
+      }
+    }
+
+    public void CustOrderList(string customer)
+    {
+      string statement = $"SELECT * FROM ViewStoreOrders WHERE CustomerId={customer}";
+      var storeOrder = _context.ViewStoreOrders.FromSqlRaw(statement).ToList();
+
+      foreach (var x in storeOrder)
+      {
+        Console.WriteLine($"{x.OrderId} {x.FirstName} {x.ProductName} {x.ProductPrice} {x.Quantity}");
+
+      }
+    }
+
+    public async Task<dbcust> LoginCustomerAsync(Customer customer)
+    {
+      // dbcust logincust = new dbcust();
+      customer = await _context.Customers.FromSqlRaw<Customer>("SELECT * FROM Customer WHERE FirstName = {0} and LastName = {1}", customer.FirstName, customer.LastName).FirstOrDefaultAsync();
+
+      if (customer == null) return null;
+
+      return customer;
+    }
+
+    public async Task<Customer> RegisterCustomerAsync(Customer cust)
+    {
+
+      int customer1 = await _context.Database.ExecuteSqlRawAsync("INSERT INTO Customer (FirstName, LastName) VALUES ({0},{1})", cust.FirstName, cust.LastName);
+
+      if (customer1 != 1) return null;
+
+      return await LoginCustomerAsync(cust);
+    }
+
+
+
+
+    public CustomerRepository()
+    {
+    }
+  }
 }

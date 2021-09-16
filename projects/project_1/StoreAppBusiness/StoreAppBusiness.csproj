@@ -6,5 +6,12 @@
 
   <ItemGroup>
     <ProjectReference Include="..\StoreAppDBContext\StoreAppDBContext.csproj" />
+    <ProjectReference Include="..\StoreApp\StoreApp.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 </Project>
