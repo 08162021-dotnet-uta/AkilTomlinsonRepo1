@@ -117,7 +117,7 @@ namespace StoreAppUI.Controllers
     }
 
     [HttpGet("login/{FirstName}/{LastName}")]
-    public async Task<ActionResult<Customer>> LoginOG(string FirstName, string LastName)
+    public async Task<ActionResult<Customer>> Login(string FirstName, string LastName)
     {
       if (!ModelState.IsValid) return BadRequest();
 
@@ -130,6 +130,18 @@ namespace StoreAppUI.Controllers
       return Ok(cust1);
 
     }
+
+    [HttpGet("GetCustOrders/{customer}")]
+    public async Task<List<ViewStoreOrder>> Details(string customer)
+    {
+      ViewStoreOrder VSO = new ViewStoreOrder() { FirstName = customer };
+      List<ViewStoreOrder> VSO1 = await _customerRepo.CustOrderListAsync(VSO.FirstName);
+
+      return VSO1;
+
+    }
+
+
 
     // [HttpGet("GetLogin")]
     // public async Task<ActionResult<Customer>> Login()

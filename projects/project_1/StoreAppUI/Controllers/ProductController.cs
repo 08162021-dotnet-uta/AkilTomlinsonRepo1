@@ -11,41 +11,52 @@ namespace StoreAppUI.Controllers
 {
   [ApiController]
   [Route("[controller]")]
-  public class StoreController : Controller
+  public class ProductController : Controller
   {
+    private readonly IProductRepository _productRepo;
 
-    private readonly IStoreRepository _storeRepo;
 
-    public StoreController(IStoreRepository sRepo)
+    public ProductController(IProductRepository pRepo)
     {
-      _storeRepo = sRepo;
-    }
-    // GET: Store
-    [HttpGet("GetStoreOrders/{store}")]
-    public async Task<List<ViewStoreOrder>> Details(string store)
-    {
-      ViewStoreOrder VSO = new ViewStoreOrder() { ProductName = store };
-      List<ViewStoreOrder> VSO1 = await _storeRepo.StoreOrderListAsync(VSO.ProductName);
-
-      return VSO1;
-
+      _productRepo = pRepo;
     }
 
-    // GET: Store/Details/5
-    [HttpGet("GetStores")]
-    public async Task<List<Store>> Details()
+
+
+    // GET: Product
+    public ActionResult Index()
     {
-      List<Store> store = await _storeRepo.StoreListAsync();
-      return store;
+      return View();
     }
 
-    // GET: Store/Create
+    // GET: Product/Details/5
+    [HttpGet("GetProducts/{store}")]
+    public async Task<List<ViewStoreProduct>> Details(string store)
+    {
+      ViewStoreProduct VSP = new ViewStoreProduct() { StoreName = store };
+      List<ViewStoreProduct> VSP1 = await _productRepo.StoreProductListAsync(VSP.StoreName);
+
+      return VSP1;
+
+    }
+
+    [HttpGet("GetProductData/{productId}")]
+    public async Task<ViewStoreProduct> ProductData(string productId)
+    {
+      //ViewStoreProduct VSP = new ViewStoreProduct() { ProductId = productId };
+      ViewStoreProduct VSP1 = await _productRepo.ProductDataAsync(productId);
+
+      return VSP1;
+
+    }
+
+    // GET: Product/Create
     public ActionResult Create()
     {
       return View();
     }
 
-    // POST: Store/Create
+    // POST: Product/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Create(IFormCollection collection)
@@ -62,13 +73,13 @@ namespace StoreAppUI.Controllers
       }
     }
 
-    // GET: Store/Edit/5
+    // GET: Product/Edit/5
     public ActionResult Edit(int id)
     {
       return View();
     }
 
-    // POST: Store/Edit/5
+    // POST: Product/Edit/5
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Edit(int id, IFormCollection collection)
@@ -85,13 +96,13 @@ namespace StoreAppUI.Controllers
       }
     }
 
-    // GET: Store/Delete/5
+    // GET: Product/Delete/5
     public ActionResult Delete(int id)
     {
       return View();
     }
 
-    // POST: Store/Delete/5
+    // POST: Product/Delete/5
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Delete(int id, IFormCollection collection)

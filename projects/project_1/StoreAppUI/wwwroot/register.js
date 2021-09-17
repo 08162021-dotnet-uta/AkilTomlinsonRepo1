@@ -5,7 +5,7 @@ registerform.addEventListener('submit', (e) => {
   const FirstName = registerform.FirstName.value;
   const LastName = registerform.LastName.value;
   const userData = { CustomerId: -1, FirstName: FirstName, LastName: LastName }
-  console.log(userData);
+
   fetch('customer/register', {
     method: 'POST',
     headers: {

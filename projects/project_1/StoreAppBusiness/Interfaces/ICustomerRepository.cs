@@ -13,6 +13,6 @@ namespace StoreAppBusiness.Interfaces
 
     Task<Customer> RegisterCustomerAsync(Customer customer);
     void CustOrderList();
-    void CustOrderList(string customer);
+    Task<List<ViewStoreOrder>> CustOrderListAsync(string customer);
   }
 }

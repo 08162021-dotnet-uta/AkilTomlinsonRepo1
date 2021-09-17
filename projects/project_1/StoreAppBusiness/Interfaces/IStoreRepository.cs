@@ -9,6 +9,6 @@ namespace StoreAppBusiness.Interfaces
   {
     Task<List<Store>> StoreListAsync();
     void StoreOrderList();
-    void StoreOrderList(string store);
+    Task<List<ViewStoreOrder>> StoreOrderListAsync(string store);
   }
 }

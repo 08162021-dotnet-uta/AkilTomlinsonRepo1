@@ -7,7 +7,7 @@ loginform.addEventListener("submit", (e) => {
 
   fetch(`customer/login/${FirstName}/${LastName}`)
     .then(res => {
-      console.log(res);
+      //console.log(res);
       if (!res.ok) {
         console.log('unable to login the user')
         throw new Error(`Network response was not ok (${res.status})`);
@@ -15,7 +15,7 @@ loginform.addEventListener("submit", (e) => {
       return res.json();
     })
     .then(res => {
-      console.log(res);
+      //console.log(res);
       sessionStorage.setItem('user', JSON.stringify(res));
 
       console.log(sessionStorage.user);

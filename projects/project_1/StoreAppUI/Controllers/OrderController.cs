@@ -11,41 +11,47 @@ namespace StoreAppUI.Controllers
 {
   [ApiController]
   [Route("[controller]")]
-  public class StoreController : Controller
+  public class OrderController : Controller
   {
 
-    private readonly IStoreRepository _storeRepo;
+    private readonly IOrderRepository _orderRepo;
 
-    public StoreController(IStoreRepository sRepo)
+
+    public OrderController(IOrderRepository oRepo)
     {
-      _storeRepo = sRepo;
+      _orderRepo = oRepo;
     }
-    // GET: Store
-    [HttpGet("GetStoreOrders/{store}")]
-    public async Task<List<ViewStoreOrder>> Details(string store)
-    {
-      ViewStoreOrder VSO = new ViewStoreOrder() { ProductName = store };
-      List<ViewStoreOrder> VSO1 = await _storeRepo.StoreOrderListAsync(VSO.ProductName);
-
-      return VSO1;
-
-    }
-
-    // GET: Store/Details/5
-    [HttpGet("GetStores")]
-    public async Task<List<Store>> Details()
-    {
-      List<Store> store = await _storeRepo.StoreListAsync();
-      return store;
-    }
-
-    // GET: Store/Create
-    public ActionResult Create()
+    // GET: Order
+    public ActionResult Index()
     {
       return View();
     }
 
-    // POST: Store/Create
+    // GET: Order/Details/5
+    [HttpGet("PopulateOrder/{OrderId}/{ProductId}/{Quantity}")]
+    public ActionResult PopulateOrder(string OrderId, string ProductId, string Quantity)
+    {
+      if (!ModelState.IsValid) return BadRequest();
+
+      Task<int> popOrder = _orderRepo.PopulateOrderProductsAsync(OrderId, ProductId, Quantity);
+
+      return Ok(popOrder);
+
+    }
+
+    // GET: Order/Create
+    [HttpGet("CreateOrder/{CustomerId}/{StoreId}")]
+    public ActionResult CreateOrder(string CustomerId, string StoreId)
+    {
+      if (!ModelState.IsValid) return BadRequest();
+      //return Ok(12);
+
+      Task<Order> orderId = _orderRepo.CreateOrderAsync(CustomerId, StoreId);
+
+      return Ok(orderId);
+    }
+
+    // POST: Order/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Create(IFormCollection collection)
@@ -62,13 +68,13 @@ namespace StoreAppUI.Controllers
       }
     }
 
-    // GET: Store/Edit/5
+    // GET: Order/Edit/5
     public ActionResult Edit(int id)
     {
       return View();
     }
 
-    // POST: Store/Edit/5
+    // POST: Order/Edit/5
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Edit(int id, IFormCollection collection)
@@ -85,13 +91,13 @@ namespace StoreAppUI.Controllers
       }
     }
 
-    // GET: Store/Delete/5
+    // GET: Order/Delete/5
     public ActionResult Delete(int id)
     {
       return View();
     }
 
-    // POST: Store/Delete/5
+    // POST: Order/Delete/5
     [HttpPost]
     [ValidateAntiForgeryToken]
     public ActionResult Delete(int id, IFormCollection collection)

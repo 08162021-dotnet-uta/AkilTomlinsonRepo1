@@ -40,20 +40,21 @@ namespace StoreAppUI
 
       services.AddDbContext<AkilApplicationDBContext>(options =>
         {
-            if (!options.IsConfigured)
-            {
-                options.UseSqlServer("Server=08162021dotnetuta.database.windows.net;Database=AkilApplicationDB;User Id=sqladmin;Password=Password12345;");
-            }
+          if (!options.IsConfigured)
+          {
+            options.UseSqlServer("Server=08162021dotnetuta.database.windows.net;Database=AkilApplicationDB;User Id=sqladmin;Password=Password12345;");
+          }
 
         });
 
-       services.AddScoped<ICustomerRepository, CustomerRepository>();
-       services.AddScoped<IStoreRepository, StoreRepository>();
-       services.AddScoped<IProductRepository, ProductRepository>();
+      services.AddScoped<ICustomerRepository, CustomerRepository>();
+      services.AddScoped<IStoreRepository, StoreRepository>();
+      services.AddScoped<IProductRepository, ProductRepository>();
+      services.AddScoped<IOrderRepository, OrderRepository>();
 
 
 
-        }
+    }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

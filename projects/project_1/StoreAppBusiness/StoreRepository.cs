@@ -42,16 +42,16 @@ namespace StoreAppBusiness
       }
     }
 
-    public void StoreOrderList(string store)
+    public async Task<List<ViewStoreOrder>> StoreOrderListAsync(string store)
     {
       string statement = $"SELECT * FROM ViewStoreOrders WHERE StoreId={store}";
-      var storeOrder = _context.ViewStoreOrders.FromSqlRaw(statement).ToList();
-
+      List<ViewStoreOrder> storeOrder = await _context.ViewStoreOrders.FromSqlRaw(statement).ToListAsync();
+      List<ViewStoreOrder> storeOrder1 = new List<ViewStoreOrder>();
       foreach (var x in storeOrder)
       {
-        Console.WriteLine($"{x.OrderId} {x.FirstName} {x.ProductName} {x.ProductPrice} {x.Quantity}");
-
+        storeOrder1.Add(x);
       }
+      return storeOrder1;
     }
 
 
